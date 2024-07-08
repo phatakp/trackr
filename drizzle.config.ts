@@ -2,7 +2,7 @@ import * as dotenv from "dotenv";
 import { type Config } from "drizzle-kit";
 
 dotenv.config({
-  path: ".env",
+  path: process.env.NODE_ENV !== "production" ? ".env.local" : ".env",
 });
 
 export default {

@@ -1,8 +1,13 @@
 import { ThemeToggle } from "@/components/common/theme-toggle";
 import { siteConfig } from "@/lib/site-config";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { cn } from "@/lib/utils";
+import {
+  getKindeServerSession,
+  LogoutLink,
+} from "@kinde-oss/kinde-auth-nextjs/server";
 import { Package2 } from "lucide-react";
 import Link from "next/link";
+import { buttonVariants } from "../ui/button";
 import { MobileNav } from "./mobile-nav";
 import { NavLink } from "./nav-link";
 
@@ -31,7 +36,11 @@ export async function Navbar() {
         <div className="flex items-center gap-4 ml-auto md:gap-2 lg:gap-4">
           <ThemeToggle />
 
-          {/* {(await isAuthenticated()) && <UserDropdown />} */}
+          {(await isAuthenticated()) && (
+            <LogoutLink className={cn(buttonVariants({ size: "sm" }))}>
+              Logout
+            </LogoutLink>
+          )}
         </div>
       </div>
     </header>
