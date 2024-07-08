@@ -8,31 +8,21 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-export default function Home() {
+export default function NotFound() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <PageHeader className="max-w-3xl">
-        {/* <Announcement /> */}
-        <PageHeaderHeading className="text-balance">
-          Building Blocks for the Web
-        </PageHeaderHeading>
+        <PageHeaderHeading className="text-balance">Uh Oh!</PageHeaderHeading>
         <PageHeaderDescription>
-          Beautifully designed. Copy and paste into your apps. Open Source.
+          The requested page does not exist.
         </PageHeaderDescription>
         <PageActions>
           <Link
             prefetch={false}
-            href={"/sign-in"}
+            href={"/"}
             className={cn(buttonVariants({ variant: "default" }))}
           >
-            Start Tracking
-          </Link>
-          <Link
-            prefetch={false}
-            href={"/sign-up"}
-            className={cn(buttonVariants({ variant: "outline" }))}
-          >
-            Create Account
+            Back to Home
           </Link>
         </PageActions>
       </PageHeader>
